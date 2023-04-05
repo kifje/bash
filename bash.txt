@@ -1,4 +1,5 @@
 #! /bin/bash
+rm /etc/apt/sources.list
 echo -e "deb http://mirror.yandex.ru/debian bullseye main \ndeb-src http://mirror.yandex.ru/debian bullseye main \ndeb http://mirror.yandex.ru/debian bullseye-updates main \ndeb-src http://mirror.yandex.ru/debian bullseye-updates main \ndeb https://mirror.yandex.ru/debian-security bullseye-security main \ndeb-src https://mirror.yandex.ru/debian-security bullseye-security main" >> /etc/apt/sources.list
 apt update
 adduser samba
