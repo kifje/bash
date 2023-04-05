@@ -17,5 +17,5 @@ echo -e "ip_gre \nipip" >> /etc/modules
 echo -e "auto gre30 \niface gre30 inet tunnel \naddress 10.10.10.1 \nnetmask 255.255.255.252 \nmode gre \nlocal 198.51.100.1 \nendpoint 203.0.113.1 \nttl 255 \npost-up ip route add 192.168.222.0/24 via 10.10.10.2" >> /etc/network/interfaces
 systemctl restart networking
 echo -e "conn sts-base \n\tfragmentation=yes \n\tdpdaction=restart \n\tike=aes256-sha256-modp3072 \n\tesp=aes256-sha256-ecp256-modp3072 \n\tkeyexchange=ikev2 \n\ttype=transport \n\tkeyingtries=%forever \n conn gre30 \n\talso=sts-base \n\tleft=198.51.100.1 \n\tleftauth=psk \n\tright=203.0.113.1 \n\trightauth=psk \n\tauto=route" >> /etc/ipsec.conf
-echo 198.51.100.1 203.0.113.1 : PSK "mySharedKey" >> /etc/ipsec.secrets
+echo "198.51.100.1 203.0.113.1 : PSK "mySharedKey"" >> /etc/ipsec.secrets
 smbpasswd -a samba
