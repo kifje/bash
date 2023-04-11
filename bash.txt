@@ -9,7 +9,7 @@ chmod 777 /data/public
 echo "director" >> /etc/vsftpd.userlist
 mkdir -p /home/ftpuser/ftp_dir
 chmod -R 750 /home/ftpuser/ftp_dir
-chown -R samba: /home/ftpuser/ftp_dir
+chown -R director: /home/ftpuser/ftp_dir
 echo -e "write_enable=yes \nchroot_local_user=yes \nallow_writeable_chroot=yes \nuserlist_enable=yes \nuserlist_file=/etc/vsftpd.userlist \nuserlist_deny=no \nrsa_cert_file=/etc/ssl/private/vsftpd.pem \nrsa_private_key_file=/etc/ssl/private/vsftpd.pem \nssl_enable=YES" >> /etc/vsftpd.conf
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftp.pem -out /etc/ssl/private/vsftpd.pem
 echo -e "ip_gre \nipip" >> /etc/modules
